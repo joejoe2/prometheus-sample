@@ -1,0 +1,6 @@
+- targets: ['host.docker.internal:8090']
+  labels:
+    job: job_1
+    __metrics_path__: /actuator/prometheus
+    __scrape_interval__: 10s
+    __scrape_timeout__: 10s

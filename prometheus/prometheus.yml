@@ -1,0 +1,5 @@
+scrape_configs:
+  - job_name: 'prometheus' # can be override in target.yml
+    file_sd_configs:
+      - files:
+          - target.yml
