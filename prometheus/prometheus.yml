@@ -1,5 +1,17 @@
+global:
+  evaluation_interval: 15s
+
 scrape_configs:
-  - job_name: 'prometheus' # can be override in target.yml
+  - job_name: 'default' # can be override in target.yml
     file_sd_configs:
       - files:
-          - target.yml
+          - target.yml # auto reload
+
+rule_files:
+  - rule-up.yml # reload via curl -X POST http://localhost:9090/-/reload
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+            - alertmanager:9093

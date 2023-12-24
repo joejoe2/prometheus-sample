@@ -1,6 +1,13 @@
-- targets: ['host.docker.internal:8090']
+- targets: ['web:8090']
   labels:
     job: job_1
     __metrics_path__: /actuator/prometheus
     __scrape_interval__: 10s
+    __scrape_timeout__: 10s
+
+- targets: ['jmx:8091']
+  labels:
+    job: job_1
+    __metrics_path__: /metrics
+    __scrape_interval__: 15s
     __scrape_timeout__: 10s
